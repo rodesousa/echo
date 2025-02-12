@@ -134,7 +134,7 @@ export const ProjectSidebar = () => {
           <div className="text-sm">
             <Trans>Powered by</Trans>
           </div>
-          <LogoDembrane otherText="Dembrane&nbsp;ECHO" />
+          <LogoDembrane otherText="Dembrane" />
         </Group>
       </Stack>
     </Stack>
