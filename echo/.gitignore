@@ -15,4 +15,4 @@ node_modules
 .next
 
 __blobstorage__
-__queuestorage__
+__queuestorage__echo/server/dembrane/workspace_script.py
