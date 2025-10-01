@@ -137,6 +137,10 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 assert ANTHROPIC_API_KEY, "ANTHROPIC_API_KEY environment variable is not set"
 logger.debug("ANTHROPIC_API_KEY: set")
 
+ANTHROPIC_CHAT_MODEL = os.environ.get("ANTHROPIC_CHAT_MODEL")
+assert ANTHROPIC_CHAT_MODEL, "ANTHROPIC_CHAT_MODEL environment variable is not set"
+logger.debug(f"ANTHROPIC_CHAT_MODEL: {ANTHROPIC_CHAT_MODEL}")
+
 SERVE_API_DOCS = os.environ.get("SERVE_API_DOCS", "false").lower() in ["true", "1"]
 logger.debug(f"SERVE_API_DOCS: {SERVE_API_DOCS}")
 

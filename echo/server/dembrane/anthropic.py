@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Generator
 
 from anthropic import Anthropic, AsyncAnthropic
 
-from dembrane.config import ANTHROPIC_API_KEY
+from dembrane.config import ANTHROPIC_API_KEY, ANTHROPIC_CHAT_MODEL
 
 anthropic_client = Anthropic(
     api_key=ANTHROPIC_API_KEY,
@@ -16,7 +16,7 @@ async_anthropic_client = AsyncAnthropic(
 
 def count_tokens_anthropic(text: str) -> int:
     return anthropic_client.beta.messages.count_tokens(
-        model="claude-3-5-sonnet-20241022",
+        model=ANTHROPIC_CHAT_MODEL,
         messages=[{"role": "user", "content": text}],
     ).input_tokens
 
@@ -29,7 +29,7 @@ def stream_anthropic_chat_response(
     and returns openAI like stream response 
     """
     stream = anthropic_client.messages.create(
-        model="claude-3-5-sonnet-20241022",
+        model=ANTHROPIC_CHAT_MODEL,
         system=system,  # type:ignore
         messages=messages,  # type:ignore
         max_tokens=2048,
