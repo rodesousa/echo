@@ -23,11 +23,23 @@ export default defineConfig({
     },
   },
   build: {
+    // Disable source maps in production for security and size
+    sourcemap: false,
+
+    // Set chunk size warning limit
+    chunkSizeWarningLimit: 1000,
+
+    // Optimize minification
+    minify: "esbuild",
+
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ["react", "react-dom", "react-router"],
           ui: ["@mantine/core", "@mantine/hooks"],
+          // Split large libraries into separate chunks
+          pdf: ["react-pdf", "@react-pdf/renderer"],
+          markdown: ["react-markdown", "remark-gfm", "rehype-stringify"],
         },
       },
     },

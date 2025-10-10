@@ -27,4 +27,4 @@ COPY ./ /code/server
 
 EXPOSE 8000
 
-CMD ["uvicorn", "dembrane.main:app", "--host", "0.0.0.0", "--proxy-headers"]
+CMD ["uvicorn", "dembrane.main:app", "--host", "0.0.0.0", "--proxy-headers", "--loop", "asyncio"]
