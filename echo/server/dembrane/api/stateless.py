@@ -22,6 +22,10 @@ from dembrane.audio_lightrag.utils.lightrag_utils import (
     get_segment_from_conversation_chunk_ids,
 )
 
+from dembrane.config import (
+    LIGHTRAG_LITELLM_INFERENCE_MODEL,
+)
+
 nest_asyncio.apply()
 
 logger = getLogger("api.stateless")
@@ -49,7 +53,7 @@ def generate_summary(transcript: str, language: str | None) -> str:
 
     # Call the model over the provided API endpoint
     response = completion(
-        model="anthropic/claude-3-5-sonnet-20240620",
+        model=LIGHTRAG_LITELLM_INFERENCE_MODEL,
         messages=[
             {
                 "content": prompt,
